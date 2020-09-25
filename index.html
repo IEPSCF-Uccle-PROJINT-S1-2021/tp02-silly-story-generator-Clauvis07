@@ -7,10 +7,14 @@
 
     <title>Silly story generator</title>
 
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="style.css" />
+
   </head>
 
   <body>
+    <div class="container-fluid" >
+
     <div>
       <label for="customname">Enter custom name:</label>
       <input id="customname" type="text" placeholder="" />
@@ -22,8 +26,11 @@
       <input id="uk" type="radio" name="ukus" value="uk" />
     </div>
     <div>
-      <button class="randomize">Generate random story</button>
+      <button class="randomize" onclick="result()">Generate random story</button>
     </div>
     <p class="story"></p>
+
+  </div>
+  <script type="text/javascript" src="main.js"></script>
   </body>
 </html>
