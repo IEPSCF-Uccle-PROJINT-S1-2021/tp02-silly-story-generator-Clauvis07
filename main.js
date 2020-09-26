@@ -9,7 +9,7 @@ function randomValueFromArray(array){
   return array[random];
 }
  // Déclaration
-let storyText = "It was 94 fahrenheit outside,"+
+let storyText = "It was 94 Fahrenheit outside,"+
 " so :insertx: went for a walk. When they got to :inserty:,"+
 " they stared in horror for a few moments, then :insertz:. Bob saw the whole thing,"+
 " but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.";
@@ -22,9 +22,7 @@ let nsertZ = ['spontaneously combusted',
               'melted into a puddle on the sidewalk',
               'turned into a slug and crawled away'];
 
-    /*  Window.onload = function(){
-                randomize.addEventListener('click', result);
-              }*/
+              randomize.addEventListener('click', result);
 
 function result() {
 
@@ -33,33 +31,45 @@ function result() {
   let xItem = randomValueFromArray(insertX);
   let yItem = randomValueFromArray(insertY);
   let zItem = randomValueFromArray(nsertZ);
-  let newString1 = "";
+  hide('erreur');
 
-  if(customName.value !== 'Bob' || customName.value !== 'bob') {
+
+   if(customName.value.length === 0){
+    $('erreur').innerHTML= "Veillez saisir le custom Name SVP!!!";
+    show('erreur');
+    return;
+   }
+
+
+  if(customName.value !== 'Bob' ) {
     let name = customName.value;
    // alert("coucou");
-   newString1  = newStory.replaceAll('Bob',name);
+   newStory  = newStory.replaceAll('Bob',name);
+   newStory  = newStory.replaceAll(':insertx:',xItem);
+   newStory  = newStory.replace(':inserty:',yItem);
+   newStory  = newStory.replace(':insertz:',zItem);
 
   }
 
   if(document.getElementById("uk").checked) {
     let weight        =  Math.round(300* 0.071429);
-    let temperature   =  Math.round((94-32)*(5/9));
+    let  temperature   =  Math.round((94-32)*(5/9));
     //alert(temperature);
-    let  newString2   =  newString1.replace(/94 Fahrenheit/g,temperature);  //g ==> global
+      newStory   =  newStory.replace(/94 Fahrenheit/g,temperature+"°C");  //g ==> global
     //alert(newString2);
-   let  newString3  =  newString2.replace(/300 pounds/g,weight);
-    story.textContent = newString3;
+      newStory  =  newStory.replace(/300 pounds/g,weight+"g");
+    story.textContent = newStory;
     story.style.visibility = 'visible';
 
   }
   else{
-    story.textContent      = newString1 ;
+    story.textContent      = newStory ;
     story.style.visibility = 'visible';
   }
 
-
 }
+
+
 
 
 

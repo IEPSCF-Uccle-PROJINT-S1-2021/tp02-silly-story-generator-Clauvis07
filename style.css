@@ -1,6 +1,8 @@
 body {
   font-family: helvetica, sans-serif;
   width: 350px;
+  margin: auto;
+  margin-top: 15px;
 }
 
 label {
@@ -21,4 +23,8 @@ p {
   color: #5e2612;
   padding: 10px;
   visibility: hidden;
+}
+
+#erreur{
+  color: red;
 }
